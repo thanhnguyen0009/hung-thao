@@ -28,9 +28,15 @@
                 <source src="./thiep/anh/Video.mp4" type="video/mp4">
                 Trình duyệt của bạn không hỗ trợ thẻ video.
             </video>             -->
-            <video src="./thiep/anh/videoo.mp4" controls poster="./thiep/anh/thumbail-02.png"></video>
-                </video>
-                <img src="./thiep/anh/click-02.png" alt="" class="img-click">
+            <button data-modal-target="modal2" class="btn-modal"><img src="./thiep/anh/bithu.GIF" alt="" class="img-btn"></button>
+            <div class="modal" id="modal2">
+                <div class="modal-content">
+                  <span class="modal-close">&times;</span>
+                  <video src="./thiep/anh/videoo.mp4" controls poster="./thiep/anh/thumbail-02.png"></video>
+                </div>
+              </div>
+            <!-- <video src="./thiep/anh/videoo.mp4" controls poster="./thiep/anh/thumbail-02.png"></video> -->
+                <!-- <img src="./thiep/anh/click-02.png" alt="" class="img-click"> -->
                 <label for="" class="lb-click">Bấm vào đây để xem <strong>“Câu chuyện tình yêu” </strong> <br>
                     của <strong>Hưng và Thảo </strong> nhé!</label>
            </div>
@@ -53,6 +59,18 @@
                         </a>
                     </div>
                 </div>
+                <label for="" class="dot1"><i class="fa-solid fa-diamond"></i></label>
+                <div class="box-qr">
+                    <button data-modal-target="modal" class="btn-qr">MỪNG CƯỚI</button>
+                </div>
+                <div class="modal" id="modal">
+                    <div class="modal-content">
+                      <span class="modal-close">&times;</span>
+                      <h1>MỪNG CƯỚI ĐẾN DÂU/RỂ</h1>
+                      <img src="./thiep/anh/qr.jpg" alt="" class="img-modal">
+
+                    </div>
+                  </div>
            </div>
 
             <div class="box-form" >
@@ -84,25 +102,6 @@
                         <input required class="inp-ten" type="text"  name="SỐ KHÁCH" placeholder="Số khách mời đi kèm" maxlength="1">
                         <textarea id="message" name="LỜI CHÚC" rows="4" cols="50" placeholder="Dành lời chúc mừng đến Khánh Hưng và Thạch Thảo tại đây:"></textarea>
                     </div>
-                    <!-- <div class="til">
-                        <label for="" class="title">BẠN LÀ BẠN BÈ, ĐỒNG NGHIỆP HAY NGƯỜI THÂN CỦA...?</label>
-                    </div> -->
-                    <!-- <div class="container-check">
-                        <input class="box-feed" type="radio" value="NON - VEGETARIAN" id="non" name="VEGETARIAN">
-                        <label class="check-box2" for="non">
-                            <h3 class="til-check">NON - VEGETARIAN</h3>
-                        </label>
-                        <input class="box-feed" type="radio" value="VEGETARIAN" id="ye" name="VEGETARIAN">
-                        <label class="check-box2" for="ye"> 
-                            <h3 class="til-check">VEGETARIAN</h3>
-                        </label>
-                    </div> -->
-                    <!-- <div class="til">
-                        <label for="" class="title">GỬI MỘT VÀI LỜI IU THƯƠNG DÀNH CHO <br> CHÚNG MÌNH NHA ^^</label>
-                    </div> -->
-                    <!-- <div class="box-ten">
-                        <textarea id="message" name="LỜI CHÚC" rows="4" cols="50" placeholder="Dành lời chúc mừng đến Khánh Hưng và Thạch Thảo tại đây:"></textarea>
-                    </div> -->
                     <div class="wrapper">
                         <button class="xacnhan" type="submit">XÁC NHẬN</button>
                     </div>
@@ -146,26 +145,49 @@
     });
 });
     </script>
+     <script>
+        const modalTriggerButtons = document.querySelectorAll("[data-modal-target]");
+       const modals = document.querySelectorAll(".modal");
+       const modalCloseButtons = document.querySelectorAll(".modal-close");
+
+       modalTriggerButtons.forEach(elem => {
+       elem.addEventListener("click", event => toggleModal(event.currentTarget.getAttribute("data-modal-target")));
+       });
+       modalCloseButtons.forEach(elem => {
+       elem.addEventListener("click", event => toggleModal(event.currentTarget.closest(".modal").id));
+       });
+       modals.forEach(elem => {
+       elem.addEventListener("click", event => {
+           if(event.currentTarget === event.target) toggleModal(event.currentTarget.id);
+       });
+       });
+
+       // Maybe also close with "Esc"...
+       document.addEventListener("keydown", event => {
+       if(event.keyCode === 27 && document.querySelector(".modal.modal-show")) {
+           toggleModal(document.querySelector(".modal.modal-show").id);
+       }
+       });
+
+       function toggleModal(modalId) {
+       const modal = document.getElementById(modalId);
+
+       if(getComputedStyle(modal).display==="flex") { // alternatively: if(modal.classList.contains("modal-show"))
+           modal.classList.add("modal-hide");
+           setTimeout(() => {
+           document.body.style.overflow = "initial"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown - in this case: "initial" <=> "visible"
+           modal.classList.remove("modal-show", "modal-hide");
+           modal.style.display = "none";      
+           }, 200);
+       }
+       else {
+           document.body.style.overflow = "hidden"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown
+           modal.style.display = "flex";
+           modal.classList.add("modal-show");
+       }
+       }
+   </script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <!-- <script>
-        const video = document.getElementById("myVideo");
-    
-        function goFullscreen() {
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.mozRequestFullScreen) {
-                video.mozRequestFullScreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen();
-            }
-        }
-        video.muted = false;
-        video.onplay = function() {
-            goFullscreen();
-        };
-    </script> -->
     <script>
         // Khởi tạo AOS
         AOS.init();
