@@ -3,260 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Thông tin Open Graph cho ảnh đại diện -->
-  <!-- <meta property="og:image" content="https://yenstudio.com.vn/minh-man.jpg" /> -->
-  <meta property="og:image:width" content="600" /> <!-- Chiều rộng ảnh đại diện -->
-  <meta property="og:image:height" content="300" /> <!-- Chiều cao ảnh đại diện -->
+        <!-- Thông tin Open Graph cho ảnh đại diện -->
+    <meta property="og:image" content="https://yenstudio.com.vn/hien-hien.jpg" />
+    <meta property="og:image:width" content="600" /> <!-- Chiều rộng ảnh đại diện -->
+    <meta property="og:image:height" content="300" /> <!-- Chiều cao ảnh đại diện -->
 
-  <!-- Các thông tin khác cho Open Graph -->
-  <meta property="og:title" content="HƯNG - THẢO" />
-  <meta property="og:description" content="KHÁNH HƯNG - THẠCH THẢO" />
-  <!-- <meta property="og:url" content="https://yenstudio.com.vn/oanh-lam.html" /> -->
-  <meta property="og:type" content="website" />
-    <link rel="stylesheet" href="./thiep/xacnhan.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <title>HƯNG - THẢO</title>
+    <!-- Các thông tin khác cho Open Graph -->
+    <meta property="og:title" content="HƯNG - THẢO" />
+    <meta property="og:description" content="KHÁNH HƯNG - THẠCH THẢO" />
+    <meta property="og:url" content="https://yenstudio.com.vn/hien-hien.jpg" />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="./thiep/box.css">
+    <title>Thiệp Mời | Xác Nhận Tham Dự</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="./thiep/jquery.fancybox.min.css" rel="stylesheet" />
+    <script src="./thiep/jquery.fancybox.min.js"></script>
+    <style>
+        #thiepmoi {
+            display: none;
+            max-height: 99vh;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 600px;
+            /* Giới hạn chiều rộng của popup */
+            overflow: hidden;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-top: 177.78%;
+            /* Tỉ lệ 9:16 */
+        }
+        
+        #ytplayer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .fancybox-button svg {
+            background: white;
+        }
+    </style>
 </head>
 <body>
-
     <div class="container">
-        <div class="container-wrapper">
-           <div class="box-video">
-            <!-- <video id="myVideo" width="600" controls poster="./thiep/anh/thumbail-02.png">
-                <source src="./thiep/anh/Video.mp4" type="video/mp4">
-                Trình duyệt của bạn không hỗ trợ thẻ video.
-            </video>             -->
-            <button data-modal-target="modal2" class="btn-modal"><img src="./thiep/anh/bithu.GIF" alt="" class="img-btn"></button>
-            <div class="modal" id="modal2">
-                <div class="modal-content">
-                  <span class="modal-close">&times;</span>
-                  <video src="./thiep/anh/videoo.mp4" controls poster="./thiep/anh/thumbail-02.png"></video>
+        <div class="box-container">
+            <div class="box-top">
+                <a data-fancybox data-src="#thiepmoi" href="javascript:;" class="btn btn-primary">
+                <img src="./thiep/anh/bithu.GIF" alt="" class="img-top"></a>
+
+                <img src="./thiep/anh/h-h-03.png" alt="" class="img-top1">
+                <div class="box-btn">
+                    <div class="row">
+                        
+                        <button data-modal-target="modal2" class="btn-modal"><img src="./thiep/anh/thoigian-04.png" alt="" class="img-btn"></button>
+                        <button data-modal-target="modal1" class="btn-modal"><img src="./thiep/anh/qr-04.png" alt="" class="img-btn"></button>
+                        <a href="https://maps.app.goo.gl/8oEs8fd2HzvKoXeW6" target="_blank">
+                            <img src="./thiep/anh/bando-04.png" alt="" class="img-btn"></a>
+                            <a href="./xacnhan.html" target="_blank" class="centered">
+                                <img src="./thiep/anh/xacnhan-04.png" alt="" class="img-btn"></a>
+                    </div>
                 </div>
+                
+            </div>
+        
+            <div class="modal" id="modal1"> <!-- This is the background overlay -->
+              <div class="modal-content"> <!-- This is the actual modal/popup box -->
+                <span class="modal-close">&times;</span>
+                <h1>QR CODE</h1>
+                <img src="./thiep/anh/qr.jpg" alt="" class="img-modal">
               </div>
-            <!-- <video src="./thiep/anh/videoo.mp4" controls poster="./thiep/anh/thumbail-02.png"></video> -->
-                <!-- <img src="./thiep/anh/click-02.png" alt="" class="img-click"> -->
-                <label for="" class="lb-click">Bấm vào đây để xem <strong>“Câu chuyện tình yêu” </strong> <br>
-                    của <strong>Hưng và Thảo </strong> nhé!</label>
-           </div>
-           <div class="box-content">
-                <label for="" class="dot1"><i class="fa-solid fa-diamond"></i></label>
-                <div class="content1">
-                    <label for="" class="lb-cnt1"><i>Thân mời bạn đến tham dự <strong>Tiệc Thân Mật </strong> của</i></label>
-                    <label for="" class="lb-name">KHÁNH HƯNG & THẠCH THẢO</label>
-                </div>
-                <label for="" class="dot1"><i class="fa-solid fa-diamond"></i></label>
-                <div class="box-map">
-                    <label for="" class="time-date"><i>Thời gian và địa điểm:</i></label>
-                    <label for="" class="lb-time">17:30 | 05.01.2025</label>
-                    <img src="./thiep/anh/icon-02.png" alt="" class="img-icon">
-                    <label class="add-en">Maison De Charme Restaurant & Event</label>
-                    <label for="" class="lb-add"><i>793/57/16 Trần Xuân Soạn, P. Tân Hưng, Q.7</i></label>
-                    <div class="mapps">
-                        <a href="https://maps.app.goo.gl/xoWhn9m5fSajy5gh7">
-                            <img src="./thiep/anh/map-02.png" alt="" class="img-map">
-                        </a>
-                    </div>
-                </div>
-                <label for="" class="dot1"><i class="fa-solid fa-diamond"></i></label>
-                <div class="box-qr">
-                    <button data-modal-target="modal" class="btn-qr">MỪNG CƯỚI</button>
-                </div>
-                <div class="modal" id="modal">
-                    <div class="modal-content">
-                      <span class="modal-close">&times;</span>
-                      <h1>MỪNG CƯỚI ĐẾN DÂU/RỂ</h1>
-                      <img src="./thiep/anh/qr.jpg" alt="" class="img-modal">
-
-                    </div>
-                  </div>
-           </div>
-
-            <div class="box-form" >
-                <!-- <img src="./thiep/anh/pic11-12.webp" alt="" class="img-form"> -->
-                <form action="" name="hung-thao">
-                    <div class="feed-info">
-                        <label for="" class="rsvp">RSVP</label>
-                        <label for="" class="dot2"><i class="fa-solid fa-diamond"></i></label>
-                        <label for="" class="in-fe"><i>Hãy dành chút thời gian xác nhận tham dự <br>
-                            giúp Khánh Hưng và Thạch Thảo nhé!</i></label>
-                            <hr>
-                    </div>
-                    <!-- <div class="til">
-                        <label for="" class="title">BẠN SẼ ĐẾN THAM GIA TIỆC CƯỚI ĐỈNH NÓC, KỊCH TRẦN, <br>
-                                                    BAY PHẤP PHỚI CỦA CHÚNG MÌNH CHỨ?</label>
-                    </div> -->
-                    <div class="container-check">
-                        <input required class="box-feed" type="radio" value="THAM DỰ" id="yes" name="XÁC NHẬN">
-                        <label class="check-box2" for="yes">
-                            <h3 class="til-check">NHẤT ĐỊNH ĐI</h3>
-                        </label>
-                        <input required class="box-feed" type="radio" value="KHÔNG THAM DỰ" id="no" name="XÁC NHẬN">
-                        <label class="check-box2" for="no"> 
-                            <h3 class="til-check">KHÔNG ĐI ĐƯỢC😭</h3>
-                        </label>
-                    </div>
-                    <div class="box-ten">
-                        <input required class="inp-ten" type="text"  name="TÊN" placeholder="Tên của bạn">
-                        <input required class="inp-ten" type="text"  name="SỐ KHÁCH" placeholder="Số khách mời đi kèm" maxlength="1">
-                        <textarea id="message" name="LỜI CHÚC" rows="4" cols="50" placeholder="Dành lời chúc mừng đến Khánh Hưng và Thạch Thảo tại đây:"></textarea>
-                    </div>
-                    <div class="wrapper">
-                        <button class="xacnhan" type="submit">XÁC NHẬN</button>
-                    </div>
-                </form>
             </div>
-            <div class="box-end">
-                <img src="./thiep/anh/backform-02.png" alt="" class="img-end">
+            <div class="modal" id="modal2">
+              <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <h1>THỜI GIAN & ĐỊA ĐIỂM</h1>
+               <img src="./thiep/anh/tgdd-05.png" alt="" class="img-modal">
+              </div>
             </div>
+
+            
         </div>
     </div>
+
+    <div style="display: none;padding:0;" id="thiepmoi">
+        <div class="video-container">
+            <video id="ytplayer" controls src="./thiep/anh/videoo.mp4"></video>
+        </div>
+        
+    </div>
+    </div>
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzqIO_Qxlx9vM6CHivhn8mOeQL-aRvx7PlK-xD_zmPV0kTF3jYClac4PNv-_vsLbhs/exec';
-        const form = document.forms['hung-thao'];
-    
-        form.addEventListener('submit', e => {
-    e.preventDefault(); // Ngừng việc gửi form mặc định
+         const modalTriggerButtons = document.querySelectorAll("[data-modal-target]");
+        const modals = document.querySelectorAll(".modal");
+        const modalCloseButtons = document.querySelectorAll(".modal-close");
 
-    // Hiển thị thông báo cảm ơn ngay khi nhấn gửi
-    alert('THANK YOU FOR YOUR RESPONSE! The data being sent will take a few seconds. Please click "OK" and wait for the form to refresh automatically.');
+        modalTriggerButtons.forEach(elem => {
+        elem.addEventListener("click", event => toggleModal(event.currentTarget.getAttribute("data-modal-target")));
+        });
+        modalCloseButtons.forEach(elem => {
+        elem.addEventListener("click", event => toggleModal(event.currentTarget.closest(".modal").id));
+        });
+        modals.forEach(elem => {
+        elem.addEventListener("click", event => {
+            if(event.currentTarget === event.target) toggleModal(event.currentTarget.id);
+        });
+        });
 
-    // Gửi dữ liệu form đi
-    fetch(scriptURL, { 
-        method: 'POST', 
-        body: new FormData(form)
-    })
-    .then(response => {
-        if (response.ok) {
-            // Nếu dữ liệu gửi thành công, làm mới lại form
-            form.reset(); // Làm mới lại form
-            alert('The information has been sent!!');
-        } else {
-            // Nếu gặp lỗi khi gửi dữ liệu
-            console.error('Error!', response);
-            alert('OPPS! Đã xảy ra lỗi');
+        // Maybe also close with "Esc"...
+        document.addEventListener("keydown", event => {
+        if(event.keyCode === 27 && document.querySelector(".modal.modal-show")) {
+            toggleModal(document.querySelector(".modal.modal-show").id);
         }
-    })
-    .catch(error => {
-        // Xử lý lỗi nếu có
-        console.error('Error!', error.message);
-        alert('OPPS! Đã xảy ra lỗi: ' + error.message);
-    });
-});
+        });
+
+        function toggleModal(modalId) {
+        const modal = document.getElementById(modalId);
+
+        if(getComputedStyle(modal).display==="flex") { // alternatively: if(modal.classList.contains("modal-show"))
+            modal.classList.add("modal-hide");
+            setTimeout(() => {
+            document.body.style.overflow = "initial"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown - in this case: "initial" <=> "visible"
+            modal.classList.remove("modal-show", "modal-hide");
+            modal.style.display = "none";      
+            }, 200);
+        }
+        else {
+            document.body.style.overflow = "hidden"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown
+            modal.style.display = "flex";
+            modal.classList.add("modal-show");
+        }
+        }
     </script>
-     <script>
-        const modalTriggerButtons = document.querySelectorAll("[data-modal-target]");
-       const modals = document.querySelectorAll(".modal");
-       const modalCloseButtons = document.querySelectorAll(".modal-close");
-
-       modalTriggerButtons.forEach(elem => {
-       elem.addEventListener("click", event => toggleModal(event.currentTarget.getAttribute("data-modal-target")));
-       });
-       modalCloseButtons.forEach(elem => {
-       elem.addEventListener("click", event => toggleModal(event.currentTarget.closest(".modal").id));
-       });
-       modals.forEach(elem => {
-       elem.addEventListener("click", event => {
-           if(event.currentTarget === event.target) toggleModal(event.currentTarget.id);
-       });
-       });
-
-       // Maybe also close with "Esc"...
-       document.addEventListener("keydown", event => {
-       if(event.keyCode === 27 && document.querySelector(".modal.modal-show")) {
-           toggleModal(document.querySelector(".modal.modal-show").id);
-       }
-       });
-
-       function toggleModal(modalId) {
-       const modal = document.getElementById(modalId);
-
-       if(getComputedStyle(modal).display==="flex") { // alternatively: if(modal.classList.contains("modal-show"))
-           modal.classList.add("modal-hide");
-           setTimeout(() => {
-           document.body.style.overflow = "initial"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown - in this case: "initial" <=> "visible"
-           modal.classList.remove("modal-show", "modal-hide");
-           modal.style.display = "none";      
-           }, 200);
-       }
-       else {
-           document.body.style.overflow = "hidden"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown
-           modal.style.display = "flex";
-           modal.classList.add("modal-show");
-       }
-       }
-   </script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        // Khởi tạo AOS
-        AOS.init();
-    </script>
-    <script>
-       "use strict";
-        // Select all slides
-        const slides = document.querySelectorAll(".slide");
-
-        // Loop through slides và thiết lập translateX cho mỗi slide
-        slides.forEach((slide, indx) => {
-        slide.style.transform = `translateX(${indx * 100}%)`;
-        });
-
-        // Chọn nút next và prev
-        const nextSlide = document.querySelector(".btn-next");
-        const prevSlide = document.querySelector(".btn-prev");
-
-        // Biến đếm số slide hiện tại và tối đa
-        let curSlide = 0;
-        let maxSlide = slides.length - 1;
-
-        // Thêm sự kiện cho nút tiếp theo
-        nextSlide.addEventListener("click", function () {
-        // Nếu hiện tại là slide cuối, quay lại đầu tiên
-        if (curSlide === maxSlide) {
-            curSlide = 0;
-        } else {
-            curSlide++;
-        }
-
-        // Di chuyển tất cả các slide
-        slides.forEach((slide, indx) => {
-            slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
-        });
-        });
-
-        // Thêm sự kiện cho nút quay lại
-        prevSlide.addEventListener("click", function () {
-        // Nếu hiện tại là slide đầu tiên, quay lại cuối cùng
-        if (curSlide === 0) {
-            curSlide = maxSlide;
-        } else {
-            curSlide--;
-        }
-
-        // Di chuyển tất cả các slide
-        slides.forEach((slide, indx) => {
-            slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
-        });
-        });
-
-     </script>
-     <script>
-        const musicCircle = document.getElementById("musicCircle");
-  const audio = document.getElementById("audio");
-  
-  // Thêm sự kiện khi nhấn vào hình tròn
-  musicCircle.addEventListener("click", function () {
-      // Nếu nhạc đang dừng và hình tròn không xoay
-      if (audio.paused) {
-          audio.play(); // Phát nhạc
-          musicCircle.classList.add("spin"); // Bắt đầu xoay liên tục
-      } else {
-          audio.pause(); // Dừng nhạc nếu đang phát
-          musicCircle.classList.remove("spin"); // Dừng xoay
-      }
-  });
-      </script>
-     <script src="./thiep/thiep.js"></script>
 </body>
 </html>
